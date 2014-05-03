@@ -110,9 +110,6 @@ if [ `uname` == "Darwin" ] ; then
 		. $brew/Cellar/bash-completion/1.3/etc/bash_completion
 	fi
 
-	# pyenv (https://github.com/yyuu/pyenv) stuff
-        if which pyenv > /dev/null; then eval "$(pyenv init -)" ; pyenv virtualenvwrapper ; fi
-
 fi
 
 ### autostart
