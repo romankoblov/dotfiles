@@ -23,7 +23,7 @@ map <F3> :tabnext<CR>
 map <F4> :tabclose<CR>
 
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 tw=80
-au FileType python match Error /\%>80v/ 
+au FileType python match Error /\%>80v/
 au FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 map <F5> :set nonumber!<CR>:set foldcolumn=0<CR>
@@ -61,5 +61,5 @@ let g:NERDTreeWinPos = "right"
 map <F6> :NERDTreeToggle<CR>
 
 " snippets
-let g:snips_author = 'Ilya Otyutskiy'
-let g:snips_email = 'ilya.otyutskiy@icloud.com'
+let g:snips_author = 'Roman Koblov'
+let g:snips_email = 'penpen938@me.com'
