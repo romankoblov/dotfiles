@@ -91,12 +91,14 @@ export PAGER=less
 export HISTCONTROL=ignoredups
 export TERM=xterm-256color
 
+alias g=vim
 ### OSX-specific stuff
 if [ `uname` == "Darwin" ] ; then
 	alias ls="ls -G"
 	alias top="top -s1 -o cpu -R -F"
 	alias tor-ssh='ssh -o ProxyCommand="nc -X 4 -x localhost:9150 %h %p"'
 	alias osxlock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+	alias g="subl"
 	export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
 	export LANG=en_US.UTF-8
 	export LC_ALL=en_US.UTF-8
