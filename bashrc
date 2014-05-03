@@ -107,6 +107,9 @@ if [ `uname` == "Darwin" ] ; then
 	## homebrew (https://github.com/mxcl/homebrew) stuff
 	brew=`brew --prefix`
 
+    # Docker.io stuff
+    export DOCKER_HOST=tcp://docker.local:4243/
+
 	# bash completion
 	if [ -f $brew/Cellar/bash-completion/1.3/etc/bash_completion ]; then
 		. $brew/Cellar/bash-completion/1.3/etc/bash_completion
