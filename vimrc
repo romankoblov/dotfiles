@@ -4,8 +4,11 @@ set modeline
 syntax on
 set ruler rulerformat=%40(%<%f\ %m%=%r\ %l\ %c\ %p%%%)
 set background=light
-
 set autoindent
+set shiftwidth=4
+set softtabstop=4
+set tw=80
+set expandtab
 set wildmenu
 set wcm=<Tab>
 menu Encoding.koi8-r :e ++enc=koi8-r<CR>
@@ -16,16 +19,20 @@ map <F8> :emenu Encoding.<TAB>
 set hlsearch
 set nobackup
 set title
+set list
+set listchars=tab:>-,trail:~,extends:>,precedes:<
+" 80 symbol error show
+match ErrorMsg '\%>80v.\+'
 
 map <F1> :tabnew<CR>
 map <F2> :tabprev<CR>
 map <F3> :tabnext<CR>
 map <F4> :tabclose<CR>
 
-au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4 tw=80
+au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 tw=80
 au FileType python match Error /\%>80v/
-au FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-
+au FileType python setlocal smartindent 
+au FileType python setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class
 map <F5> :set nonumber!<CR>:set foldcolumn=0<CR>
 
 let g:pydoc_open_cmd = 'tabnew'
@@ -40,25 +47,26 @@ let python_highlight_space_errors = 0
 " let python_slow_sync = 1
 
 " html settings
-au FileType html setlocal tabstop=4 expandtab shiftwidth=2 softtabstop=2
+au FileType html setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2 tw=80
+au FileType jade setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2 tw=80
+au FileType htmldjango setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2 tw=80
+au FileType css setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2 tw=80
 
 " markdown settings
 autocmd BufRead *.md       set ft=markdown
-au FileType markdown setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au FileType markdown setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 tw=80
 
 " puppet settings
-au FileType puppet setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au FileType puppet setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+" Makefiles
+autocmd FileType make setlocal noexpandtab
 
 " gvim settings
 if has("gui_running")
     colorscheme desert
     set guifont=Monaco:h14 
-"    autocmd VimEnter * NERDTree
 endif
-
-" NERDtree
-let g:NERDTreeWinPos = "right"
-map <F6> :NERDTreeToggle<CR>
 
 " snippets
 let g:snips_author = 'Roman Koblov'
