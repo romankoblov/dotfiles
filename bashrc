@@ -98,7 +98,7 @@ if [ `uname` == "Darwin" ] ; then
 	alias top="top -s1 -o cpu -R -F"
 	alias tor-ssh='ssh -o ProxyCommand="nc -X 4 -x localhost:9150 %h %p"'
 	alias osxlock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-	alias g="subl"
+	alias g="mvim"
 	export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
 	export LANG=en_US.UTF-8
 	export LC_ALL=en_US.UTF-8
@@ -108,7 +108,7 @@ if [ `uname` == "Darwin" ] ; then
 	brew=`brew --prefix`
 
     # Docker.io stuff
-    export DOCKER_HOST=tcp://docker.local:4243/
+    export DOCKER_HOST=tcp://10.211.55.9:4243/
 
 	# bash completion
 	if [ -f $brew/Cellar/bash-completion/1.3/etc/bash_completion ]; then
@@ -120,3 +120,5 @@ fi
 ### autostart
 #fixagent
 screen_reattach
+
+[ -s "/Users/penpen/.nvm/nvm.sh" ] && . "/Users/penpen/.nvm/nvm.sh" # This loads nvm

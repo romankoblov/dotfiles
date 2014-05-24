@@ -52,7 +52,7 @@ au FileType puppet setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 " gvim settings
 if has("gui_running")
     colorscheme desert
-    set guifont=Terminus
+    set guifont=Monaco:h14 
 "    autocmd VimEnter * NERDTree
 endif
 
