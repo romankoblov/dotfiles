@@ -214,6 +214,8 @@ hardstatus string "[screen %n%?: %t%?] %h"
 # defnonblock 1
 # blankerprg rain -d 100
 # idle 30 blanker
+bindkey ^[[1;2C next
+bindkey ^[[1;2D prev
 
 term xterm-256color
 caption always '%{= dg} %H %{G}|%=%?%{d}%-w%?%{r}(%{d}%n %t%? {%u} %?%{r})%{d}%?%+w%?%=%{G}| %{B}%l %{G}'
