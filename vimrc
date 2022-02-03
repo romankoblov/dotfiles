@@ -63,11 +63,31 @@ au FileType puppet setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 autocmd FileType make setlocal noexpandtab
 
 " gvim settings
-if has("gui_running")
-    colorscheme desert
-    set guifont=Monaco:h14 
-endif
+colorscheme desert
+set guifont=Monaco:h14 
 
 " snippets
 let g:snips_author = 'Roman Koblov'
 let g:snips_email = 'penpen938@me.com'
+" When editing a file, always jump to the last cursor position
+au BufReadPost * call Cursor_to_last_position()
+fun Cursor_to_last_position()
+    if line("'\"") && line("'\"") <= line("$")
+        exe "normal `\""
+    endif
+endfun
+
+" post syntax/indent/plugin script setup
+au BufReadPost * call Post_scripts_init()
+fun Post_scripts_init()
+    if exists('g:post_scripts_init')
+	return
+    endif
+    let g:post_scripts_init = 1
+    " html fixup for vim<74
+    if !exists('g:html_indent_tags')
+        let g:html_indent_tags = ''
+    endif
+    " html5
+    let g:html_indent_tags .= '\|article\|aside\|audio\|bdi\|canvas\|command\|datalist\|details\|figcaption\|figure\|footer\|header\|hgroup\|mark\|meter\|nav\|output\|progress\|rp\|rt\|ruby\|section\|summary\|time\|video\|p\|li\|faq\|section\|item\|question\|answer'
+endfun
