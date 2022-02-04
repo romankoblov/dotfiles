@@ -33,7 +33,13 @@ dotfile vimrc
 dotfile gitconfig
 dotfile bashrc
 dotfile screenrc
+dotfile zshrc
+dotfile zshenv
+dotfile zlogin
 dotdir vim
+
+[ "${SHELL##/*/}" != "zsh" ] && echo 'You might need to change default shell to zsh: `chsh -s /bin/zsh`'
+
 
 # Darwin-specific
 if [ $OS == "Darwin" ] && [ ! -e $HOME/.bash_profile ] ; then
@@ -53,4 +59,19 @@ if [ ! -f ~/.dotfilesrc ] ; then
 	echo "You don't have a local configuration file."
 	echo "Probably you want one. See ~/dotfiles/dotfilesrc for instructions."
 	echo
+fi
+
+link() {
+  from="$1"
+  to="$2"
+  echo "Linking '$from' to '$to'"
+  rm -f "$to"
+  ln -s "$from" "$to"
+}
+
+
+if [ `uname` == 'Darwin' ]; then
+  link "$dotfiles/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+else
+  link "$dotfiles/vscode/settings.json" "$HOME/.vscode/settings.json"
 fi
