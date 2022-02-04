@@ -71,7 +71,7 @@ link() {
 
 
 if [ `uname` == 'Darwin' ]; then
-  link "$dotfiles/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+  link "$HOME/dotfiles/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 else
-  link "$dotfiles/vscode/settings.json" "$HOME/.vscode/settings.json"
+  link "$HOME/dotfiles/vscode/settings.json" "$HOME/.vscode/settings.json"
 fi
